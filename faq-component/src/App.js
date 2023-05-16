@@ -22,7 +22,7 @@ function App() {
       <div className='faqContainer'>
         <ul>
           {FAQ.map((faqItem, index) => (
-          <li> key={index}
+          <li key={index}>
             <span>{FAQ[0].question}</span>
             <p>{faqItem.answer}</p>
           </li>
