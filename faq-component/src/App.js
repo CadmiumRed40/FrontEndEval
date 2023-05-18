@@ -19,11 +19,12 @@ function App() {
 
   return (
     <div className="App">
+      <h1>Frequently Asked Questions</h1>
       <div className='faqContainer'>
         <ul>
           {FAQ.map((faqItem, index) => (
           <li key={index}>
-            <span>{FAQ[0].question}</span>
+            <span>{faqItem.question}</span>
             <p>{faqItem.answer}</p>
           </li>
         ))}
