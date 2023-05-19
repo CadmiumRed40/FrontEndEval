@@ -1,1 +1,9 @@
+/* setting the first FAQ item to be visible by default*/
 
+li.active {
+    display: block;
+  }
+  
+  li.inactive {
+    display: none;
+  }
