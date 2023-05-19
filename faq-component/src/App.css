@@ -1,9 +1,14 @@
+.faqContainer{
+    border: 1px solid black;
+    margin: 10px;
+}
+
 /* setting the first FAQ item to be visible by default*/
 
-li.active {
+.active {
     display: block;
   }
   
-  li.inactive {
+.inactive {
     display: none;
   }
