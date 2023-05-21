@@ -2,15 +2,6 @@ import './App.css';
 import React, { Component } from 'react';
 
 class App extends Component {
-  state = {
-    activeIndex: null
-  };
-
-  handleItemClick = (index) => {
-    this.setState((state) => ({
-      activeIndex: state.activeIndex === index ? null : index
-    }));
-  };
 
   render() {
     const FAQ = [
@@ -28,20 +19,27 @@ class App extends Component {
       },
     ];
 
-    const { activeIndex } = this.state;
-
     return (
       <div className="App">
         <h1>Frequently Asked Questions</h1>
         <div className='faqContainer'>
           <ul>
-            {FAQ.map((faqItem, index) => (
-              <li key={index} className={index === activeIndex ? "active" : "inactive"}>
-                <span>{faqItem.question}</span>
-                <button onClick={() => this.handleItemClick(index)}>&#10146;</button>
-                {index === activeIndex && <p>{faqItem.answer}</p>}
+              <li className='active'>
+              <button>&#10146;</button>
+                <span>{FAQ[0].question}</span>
+                <p>{FAQ[0].answer}</p>
               </li>
-            ))}
+              <li className='inactive'>
+              <button>&#10146;</button>
+              <span>{FAQ[1].question}</span>
+              <p>{FAQ[1].answer}</p>
+            </li>
+            <li className='inactive'>
+            <button>&#10146;</button>
+            <span>{FAQ[2].question}</span>
+            <p>{FAQ[2].answer}</p>
+          </li>
+          
           </ul>
         </div>
       </div>
