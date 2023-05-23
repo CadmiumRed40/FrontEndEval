@@ -24,21 +24,29 @@ class App extends Component {
         <h1>Frequently Asked Questions</h1>
         <div className='faqContainer'>
           <ul>
+            <div className='itemContainer'>
               <li className='active'>
+                  <button>&#10146;</button>
+                  <span>{FAQ[0].question}</span>
+                  <p>{FAQ[0].answer}</p>
+                </li>
+            </div>
+
+            <div className='itemContainer'>
               <button>&#10146;</button>
-                <span>{FAQ[0].question}</span>
-                <p>{FAQ[0].answer}</p>
-              </li>
               <li className='inactive'>
+                <span>{FAQ[1].question}</span>
+                <p>{FAQ[1].answer}</p>
+              </li>
+            </div>
+
+           <div className='itemContainer'>
               <button>&#10146;</button>
-              <span>{FAQ[1].question}</span>
-              <p>{FAQ[1].answer}</p>
-            </li>
-            <li className='inactive'>
-            <button>&#10146;</button>
-            <span>{FAQ[2].question}</span>
-            <p>{FAQ[2].answer}</p>
-          </li>
+              <li className='inactive'>
+                <span>{FAQ[2].question}</span>
+                <p>{FAQ[2].answer}</p>
+              </li>
+            </div>
           
           </ul>
         </div>
