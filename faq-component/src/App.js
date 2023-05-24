@@ -2,11 +2,18 @@ import './App.css';
 import React, { Component } from 'react';
 
 class App extends Component {
-  handleClick(event) {
-    const listItem = event.target.closest('li');
-    listItem.classList.toggle('active');
+  constructor(props) {
+    super(props);
+    this.state = {
+      activeIndex: null,
+    };
   }
 
+  handleClick(index) {
+    this.setState((prevState) => ({
+      activeIndex: prevState.activeIndex === index ? null : index,
+    }));
+  }
 
   render() {
     const FAQ = [
@@ -32,24 +39,24 @@ class App extends Component {
         <div className='faqContainer'>
           <ul>
             <div className='itemContainer'>
-              <li className='active'>
-                  <button onClick={this.handleClick}>&#10146;</button>
+            <button onClick={() => this.handleClick(0)}>&#10146;</button>
+              <li className={this.state.activeIndex === 0 ? 'active' : 'inactive'}>
                   <span>{FAQ[0].question}</span>
                   <p>{FAQ[0].answer}</p>
                 </li>
             </div>
 
             <div className='itemContainer'>
-              <button onClick={this.handleClick}>&#10146;</button>
-              <li className='inactive'>
+              <button onClick={() => this.handleClick(1)}>&#10146;</button>
+              <li className={this.state.activeIndex === 1 ? 'active' : 'inactive'}>
                 <span>{FAQ[1].question}</span>
                 <p>{FAQ[1].answer}</p>
               </li>
             </div>
 
            <div className='itemContainer'>
-              <button onClick={this.handleClick}>&#10146;</button>
-              <li className='inactive'>
+              <button onClick={() => this.handleClick(2)}>&#10146;</button>
+              <li className={this.state.activeIndex === 2 ? 'active' : 'inactive'}>
                 <span>{FAQ[2].question}</span>
                 <p>{FAQ[2].answer}</p>
               </li>
