@@ -40,25 +40,25 @@ class App extends Component {
           <ul>
             <div className='itemContainer'>
             <button onClick={() => this.handleClick(0)}>&#10146;</button>
-              <li className={this.state.activeIndex === 0 ? 'active' : 'inactive'}>
+              <li>
                   <span>{FAQ[0].question}</span>
-                  <p>{FAQ[0].answer}</p>
+                  <p className={this.state.activeIndex === 0 ? 'active' : 'inactive'}>{FAQ[0].answer}</p>
                 </li>
             </div>
 
             <div className='itemContainer'>
               <button onClick={() => this.handleClick(1)}>&#10146;</button>
-              <li className={this.state.activeIndex === 1 ? 'active' : 'inactive'}>
+              <li>
                 <span>{FAQ[1].question}</span>
-                <p>{FAQ[1].answer}</p>
+                <p className={this.state.activeIndex === 1 ? 'active' : 'inactive'}>{FAQ[1].answer}</p>
               </li>
             </div>
 
            <div className='itemContainer'>
               <button onClick={() => this.handleClick(2)}>&#10146;</button>
-              <li className={this.state.activeIndex === 2 ? 'active' : 'inactive'}>
+              <li>
                 <span>{FAQ[2].question}</span>
-                <p>{FAQ[2].answer}</p>
+                <p className={this.state.activeIndex === 2 ? 'active' : 'inactive'}>{FAQ[2].answer}</p>
               </li>
             </div>
           
