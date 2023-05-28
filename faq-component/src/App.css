@@ -1,12 +1,10 @@
 .App{
   display: flex;
+  justify-content: center;
   flex-direction: column;
-  justify-content: center;
-}
-
-.App h1{
-  display: flex;
-  justify-content: center;
+  align-items: center;
+  width: 40vw;
+  height:auto
 }
 
 .faqContainer{
