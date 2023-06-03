@@ -1,5 +1,10 @@
-const click = document.getElementById('modalButton').addEventListener('click', () => { 
+const modalContainer = document.getElementById("modalContainer");
+const modalButton = document.getElementById("modalButton");
+
+
+modalButton.addEventListener('click', () => { 
     console.log('clicked!')
+    modalContainer.classList.toggle("active");
 })
 
-const changeVisibility = document.getElementsByClassName('inactive')
+
