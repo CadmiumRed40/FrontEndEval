@@ -1,34 +1,26 @@
 const modalContainer = document.getElementById("modalContainer");
 const modalButton = document.getElementById("modalButton");
-const closeModal = document.getElementById("closeModalButton")
-const bodyContainer = document.getElementById("bodyContainer")
-const acceptedButton = document.getElementById("acceptOffer")
-const accepted = document.getElementById("AcceptedStatement")
-
+const closeModalButton = document.getElementById("closeModalButton");
+const acceptOfferButton = document.getElementById("acceptOfferButton");
+const acceptedStatement = document.getElementById("acceptedStatement");
 
 modalButton.addEventListener('click', () => { 
-    console.log('clicked!')
-    modalContainer.classList.toggle("active");
+    modalContainer.style.display = 'block';
 });
 
-closeModal.addEventListener('click', () =>{
-    console.log('closed!')
-    modalContainer.classList.toggle("active");
+closeModalButton.addEventListener('click', () =>{
+    modalContainer.style.display = 'none';
 });
 
-
-
-bodyContainer.addEventListener('click', (e) =>{
-    if (e.target === modalContainer){
-    console.log('clicked on modal')
-    } else {
-        console.log('clicked outside modal')
-        modalContainer.classList.toggle("inactive");
+modalContainer.addEventListener('click', (e) =>{
+    if (e.target === modalContainer) {
+        modalContainer.style.display = 'none';
     }
 });
 
-
-
-
+acceptOfferButton.addEventListener('click', () => {
+    modalButton.style.display = 'none';
+    acceptedStatement.style.display = 'block';
+});
 
 
