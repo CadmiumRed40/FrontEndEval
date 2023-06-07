@@ -23,4 +23,5 @@ acceptOfferButton.addEventListener('click', () => {
     acceptedStatement.style.display = 'block';
 });
 
+//TESTING GITHUB
 
