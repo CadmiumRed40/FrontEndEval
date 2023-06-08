@@ -21,6 +21,7 @@ modalContainer.addEventListener('click', (e) =>{
 acceptOfferButton.addEventListener('click', () => {
     modalButton.style.display = 'none';
     acceptedStatement.style.display = 'block';
+    modalContainer.style.display = 'none';
 });
 
 //TESTING GITHUB
