@@ -1,0 +1,7 @@
+#pauseButton, #resetButton {
+    display: none;
+  }
+  
+  #startButton {
+    display: block;
+  }
