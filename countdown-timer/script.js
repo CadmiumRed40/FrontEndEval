@@ -1,5 +1,5 @@
 const time = {
-    hour: '',
-    minute: '',
-    seconds: ''
+    hour: document.getElementById('hours'),
+    minute: document.getElementById('minutes'),
+    seconds: document.getElementById('seconds')
 }
