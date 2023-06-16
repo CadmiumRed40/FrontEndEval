@@ -1,58 +1,86 @@
-const time = {
-    hour: document.getElementById('hours').value * 3600,
-    minute: document.getElementById('minutes').value * 60,
-    seconds: document.getElementById('seconds').value
-};
-
-
-//Possibly create an interface object to pull keys from 
-const setTime = Number(time.hour + time.minute + time.seconds);
-const startButton = document.getElementById('startButton');
-const pauseButton = document.getElementById('pauseButton');
-const resetButton = document.getElementById('resetButton');
-
-let timerInterval;
-
-/*===========Start Function==========*/
-startButton.addEventListener('click', () => {
-
-    document.getElementById('inputFields').style.display = 'none';
-    document.getElementById('timerDisplay').style.display = 'block';
-
-    document.getElementById('pauseButton').style.display = 'inline';
-    document.getElementById('resetButton').style.display = 'inline';
-
-    timerInterval = setInterval(() => {
-      const hours = Math.floor(setTime / 3600);
-      const minutes = Math.floor((setTime % 3600) / 60);
-      const seconds = setTime % 60;
+document.addEventListener('DOMContentLoaded', () => {
+    const startButton = document.getElementById('startButton');
+    const pauseButton = document.getElementById('pauseButton');
+    const resetButton = document.getElementById('resetButton');
+    let timerInterval;
+    let totalSeconds = 0;
+    let isTimerRunning = false;
+    let remainingSeconds = 0;
   
-      document.getElementById('timerDisplay').innerHTML = `${hours}:${minutes}:${seconds}`;
+    startButton.addEventListener('click', () => {
+      const time = {
+        hour: document.getElementById('hours').value,
+        minute: document.getElementById('minutes').value,
+        seconds: document.getElementById('seconds').value
+      };
   
-      if (setTime === 0) {
+      let hours = Number(time.hour);
+      let minutes = Number(time.minute);
+      let seconds = Number(time.seconds);
+  
+      if (!isTimerRunning) {
+        totalSeconds = (hours * 3600) + (minutes * 60) + seconds;
+        remainingSeconds = totalSeconds;
+  
+        document.getElementById('inputFields').style.display = 'none';
+        document.getElementById('timerDisplay').style.display = 'block';
+        document.getElementById('pauseButton').style.display = 'inline';
+        document.getElementById('resetButton').style.display = 'inline';
+  
+        timerInterval = setInterval(() => {
+          if (totalSeconds <= 0) {
+            clearInterval(timerInterval);
+            document.getElementById('timerDisplay').textContent = 'Time over!';
+            return;
+          }
+  
+          hours = Math.floor(totalSeconds / 3600);
+          minutes = Math.floor((totalSeconds % 3600) / 60);
+          seconds = totalSeconds % 60;
+  
+          document.getElementById('timerDisplay').textContent = `${hours}:${minutes}:${seconds}`;
+  
+          totalSeconds--;
+        }, 1000);
+  
+        isTimerRunning = true;
+      } else {
         clearInterval(timerInterval);
-        document.getElementById('timerDisplay').innerHTML = 'Time over!';
+        totalSeconds = remainingSeconds;
+  
+        timerInterval = setInterval(() => {
+          if (totalSeconds <= 0) {
+            clearInterval(timerInterval);
+            document.getElementById('timerDisplay').textContent = 'Time over!';
+            return;
+          }
+  
+          hours = Math.floor(totalSeconds / 3600);
+          minutes = Math.floor((totalSeconds % 3600) / 60);
+          seconds = totalSeconds % 60;
+  
+          document.getElementById('timerDisplay').textContent = `${hours}:${minutes}:${seconds}`;
+  
+          totalSeconds--;
+        }, 1000);
       }
+    });
   
-      setTime--;
-    }, 1000);
+    pauseButton.addEventListener('click', () => {
+      if (isTimerRunning) {
+        clearInterval(timerInterval);
+        isTimerRunning = false;
+        remainingSeconds = totalSeconds;
+      }
+    });
+  
+    resetButton.addEventListener('click', () => {
+      clearInterval(timerInterval);
+      isTimerRunning = false;
+      totalSeconds = 0;
+      remainingSeconds = 0;
+      document.getElementById('timerDisplay').textContent = '';
+      document.getElementById('inputFields').style.display = 'block';
+    });
   });
   
-  /*===========Pause Function==========*/
-  pauseButton.addEventListener('click', () => {
-    document.getElementById('pauseButton').style.display = 'none';
-    clearInterval(timerInterval);
-  });
-  
-  /*===========Reset Function==========*/
-  resetButton.addEventListener('click', () => {
-    document.getElementById('pauseButton').style.display = 'none';
-    document.getElementById('resetButton').style.display = 'none';
-    clearInterval(timerInterval);
-    setTime = Number(time.hour + time.minute + time.seconds);
-    document.getElementById('timerDisplay').innerHTML = `${time.hour}:${time.minute}:${time.seconds}`;
-    document.getElementById('inputFields').style.display = 'block';
-    document.getElementById('countdownDisplay').style.display = 'none';
-  });
-
-
