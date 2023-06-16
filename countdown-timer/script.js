@@ -2,18 +2,22 @@ const time = {
     hour: document.getElementById('hours').value * 3600,
     minute: document.getElementById('minutes').value * 60,
     seconds: document.getElementById('seconds').value
-}
+};
+
 
 //Possibly create an interface object to pull keys from 
-const setTime = Number(time.hour + time.minute + time.seconds)
-const startButton = document.getElementById('startButton')
-const pauseButton = document.getElementById('pauseButton')
-const resetButton = document.getElementById('resetButton')
+const setTime = Number(time.hour + time.minute + time.seconds);
+const startButton = document.getElementById('startButton');
+const pauseButton = document.getElementById('pauseButton');
+const resetButton = document.getElementById('resetButton');
 
 let timerInterval;
 
 /*===========Start Function==========*/
 startButton.addEventListener('click', () => {
+
+    document.getElementById('inputFields').style.display = 'none';
+    document.getElementById('timerDisplay').style.display = 'block';
 
     document.getElementById('pauseButton').style.display = 'inline';
     document.getElementById('resetButton').style.display = 'inline';
@@ -47,6 +51,8 @@ startButton.addEventListener('click', () => {
     clearInterval(timerInterval);
     setTime = Number(time.hour + time.minute + time.seconds);
     document.getElementById('timerDisplay').innerHTML = `${time.hour}:${time.minute}:${time.seconds}`;
+    document.getElementById('inputFields').style.display = 'block';
+    document.getElementById('countdownDisplay').style.display = 'none';
   });
 
 
