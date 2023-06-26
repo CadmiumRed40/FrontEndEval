@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: left;
-    width: 40vw;
+    width: 20vw;
 }
 
 label{
@@ -10,5 +10,6 @@ label{
 }
 
 #calculateButton{
-    margin: 10px;
+    margin: 10px 10px 10px 0;
+    width: 10vw;
 }
