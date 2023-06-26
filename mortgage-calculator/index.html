@@ -9,10 +9,14 @@
 <body>
 
 <div id="valuesContainer">
-    <input type="number" id="principle"></input>
-    <input type="number" id="interestRate"></input>
-    <input type="number" id="loanLength"></input>
-    <button name="submit">Calculate</button>
+    <label>Principle Loan Amount :</label>
+    <input type="number" id="principle" min="0">$</input>
+    <label>Interest Rate :</label>
+    <input type="number" id="interestRate" min="0">%</input>
+    <label>Length of Loan :</label>
+    <input type="number" id="loanLength" min="1">Years</input>
+    <button name="submit" id="calculateButton">Calculate</button>
+    <span id="result"></span>
 </div>
 
 <script src="script.js"></script>

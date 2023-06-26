@@ -1,0 +1,14 @@
+#valuesContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    width: 40vw;
+}
+
+label{
+    display: block;
+}
+
+#calculateButton{
+    margin: 10px;
+}
