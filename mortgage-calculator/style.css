@@ -3,6 +3,7 @@
     flex-direction: inherit;
     border: .5px solid black;
     margin: 30px;
+    width: 300px;
 }
 
 #valuesContainer {
